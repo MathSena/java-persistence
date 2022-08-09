@@ -12,7 +12,7 @@ import com.mathsena.cursomc.domain.Endereco;
 @Repository
 public interface EnderecoRepository extends JpaRepository<Endereco, Integer> {
 
-	Optional<Categoria> findByid(Integer id);
+	Optional<Endereco> findByid(Integer id);
 	
 
 }
