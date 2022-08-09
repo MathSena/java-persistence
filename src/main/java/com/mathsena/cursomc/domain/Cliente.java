@@ -1,14 +1,15 @@
 package com.mathsena.cursomc.domain;
 
 import java.io.Serializable;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.List;
 import java.util.Objects;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.mathsena.cursomc.domain.enums.TipoCliente;
 
 import javax.persistence.CollectionTable;
@@ -31,7 +32,7 @@ public class Cliente implements Serializable {
 	private String cpdOuCnpj;
 	private Integer tipo;
 	
-	@JsonManagedReference
+
 	@OneToMany(mappedBy="cliente")
 	private List<Endereco> enderecos = new ArrayList<>();
 	
@@ -40,7 +41,7 @@ public class Cliente implements Serializable {
 	private Set<String> telefones = new HashSet<>();
 	
 	
-	@JsonBackReference
+	@JsonIgnore
 	@OneToMany(mappedBy="cliente")
 	private List<Pedido> pedidos = new ArrayList<>();
 	
