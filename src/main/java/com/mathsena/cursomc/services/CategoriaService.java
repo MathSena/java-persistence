@@ -1,5 +1,6 @@
 package com.mathsena.cursomc.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import com.mathsena.cursomc.services.expections.DataIntegrityException;
@@ -51,4 +52,7 @@ public class CategoriaService {
 	}
 
 
+	public List<Categoria> findAll() {
+		return repo.findAll();
+	}
 }
