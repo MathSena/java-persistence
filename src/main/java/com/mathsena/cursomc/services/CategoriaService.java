@@ -3,6 +3,7 @@ package com.mathsena.cursomc.services;
 import java.util.List;
 import java.util.Optional;
 
+import com.mathsena.cursomc.dto.CategoriaDTO;
 import com.mathsena.cursomc.services.expections.DataIntegrityException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -62,6 +63,11 @@ public class CategoriaService {
 		PageRequest pageRequest = PageRequest.of(page,linesPerPage, Sort.Direction.valueOf(direction),orderBy);
 		return repo.findAll(pageRequest);
 
+
+	}
+
+	public Categoria fromDTO(CategoriaDTO objDto){
+		return new Categoria(objDto.getId(), objDto.getNome());
 
 	}
 }
