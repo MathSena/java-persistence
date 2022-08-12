@@ -9,7 +9,6 @@ import javax.persistence.ManyToOne;
 
 @Embeddable
 public class ItemPedidoPk implements Serializable{
-	
 	private static final long serialVersionUID = 1L;
 	
 	@ManyToOne
@@ -48,7 +47,5 @@ public class ItemPedidoPk implements Serializable{
 		ItemPedidoPk other = (ItemPedidoPk) obj;
 		return Objects.equals(pedido, other.pedido) && Objects.equals(produto, other.produto);
 	}
-	
-	
 
 }

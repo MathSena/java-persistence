@@ -18,13 +18,14 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping(value="/categorias")
 public class CategoriaResource {
+
 	@Autowired
 	private CategoriaService service;
+
 	@RequestMapping(value="/{id}", method=RequestMethod.GET)
 	public ResponseEntity<Categoria> find(@PathVariable Integer id) {
 		Categoria obj = service.find(id);
 		return ResponseEntity.ok().body(obj);
-	
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
@@ -33,9 +34,7 @@ public class CategoriaResource {
 		obj = service.insert(obj);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
 				.path("/{id}").buildAndExpand(obj.getId()).toUri();
-
 		return ResponseEntity.created(uri).build();
-
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
@@ -44,14 +43,12 @@ public class CategoriaResource {
 		obj.setId(id);
 		obj = service.update(obj);
 		return ResponseEntity.noContent().build();
-
 	}
 
 	@RequestMapping(value="/{id}", method=RequestMethod.DELETE)
 	public ResponseEntity<Void> delete(@PathVariable Integer id) {
 		service.delete(id);
 		return ResponseEntity.noContent().build();
-
 	}
 
 	@RequestMapping(method=RequestMethod.GET)
@@ -59,7 +56,6 @@ public class CategoriaResource {
 		List<Categoria> list = service.findAll();
 		List<CategoriaDTO> listDto = list.stream().map(obj -> new CategoriaDTO(obj)).collect(Collectors.toList());
 		return ResponseEntity.ok().body(listDto);
-
 	}
 
 	@RequestMapping(value="/page", method=RequestMethod.GET)
@@ -71,8 +67,6 @@ public class CategoriaResource {
 		Page<Categoria> list = service.findPage(page,linesPerPage,orderBy,direction);
 		Page<CategoriaDTO> listDto = list.map(obj->new CategoriaDTO(obj));
 		return ResponseEntity.ok().body(listDto);
-
-
 	}
 
 }

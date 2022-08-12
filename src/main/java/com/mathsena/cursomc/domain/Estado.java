@@ -24,7 +24,6 @@ public class Estado implements Serializable {
 	private List<Cidade> cidades = new ArrayList<>();
 	
 	public Estado() {
-		
 	}
 
 	public Estado(Integer id, String nome) {
@@ -73,8 +72,5 @@ public class Estado implements Serializable {
 		Estado other = (Estado) obj;
 		return Objects.equals(id, other.id);
 	}
-
-
-	
 
 }

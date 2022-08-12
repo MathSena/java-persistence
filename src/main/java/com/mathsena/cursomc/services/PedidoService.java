@@ -11,18 +11,14 @@ import com.mathsena.cursomc.services.expections.ObjectNotFoundException;
 
 @Service
 public class PedidoService {
-	
+
 	@Autowired
 	private PedidoRepository repo;
-	
+
 	public Pedido find(Integer id) {
 		Optional<Pedido> obj = repo.findByid(id);
-
 		return obj.orElseThrow(()-> new ObjectNotFoundException(
 				"Objeto não encontrado! id" + id + " , Tipo: " + Pedido.class.getName()));
-
-		
 	}
-	
 
 }

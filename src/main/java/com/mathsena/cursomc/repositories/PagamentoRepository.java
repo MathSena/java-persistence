@@ -11,7 +11,6 @@ import com.mathsena.cursomc.domain.Pedido;
 
 @Repository
 public interface PagamentoRepository extends JpaRepository<Pagamento, Integer> {
-
 	Optional<Pagamento> findByid(Integer id);
 	
 

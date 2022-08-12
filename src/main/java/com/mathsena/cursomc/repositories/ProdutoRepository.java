@@ -9,7 +9,6 @@ import com.mathsena.cursomc.domain.Produto;
 
 @Repository
 public interface ProdutoRepository extends JpaRepository<Produto, Integer> {
-
 	Optional<Produto> findByid(Integer id);
 	
 

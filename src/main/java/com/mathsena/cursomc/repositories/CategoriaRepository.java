@@ -9,7 +9,6 @@ import com.mathsena.cursomc.domain.Categoria;
 
 @Repository
 public interface CategoriaRepository extends JpaRepository<Categoria, Integer> {
-
 	Optional<Categoria> findByid(Integer id);
 	
 

@@ -13,7 +13,7 @@ import com.mathsena.cursomc.services.PedidoService;
 @RestController
 @RequestMapping(value="/pedidos")
 public class PedidoResource {
-	
+
 	@Autowired
 	private PedidoService service;
 	
@@ -21,7 +21,6 @@ public class PedidoResource {
 	public ResponseEntity<Pedido> find(@PathVariable Integer id) {
 		Pedido obj = service.find(id);
 		return ResponseEntity.ok().body(obj);
-	
 	}
 
 }

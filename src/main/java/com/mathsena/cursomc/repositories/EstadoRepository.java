@@ -12,6 +12,4 @@ import com.mathsena.cursomc.domain.Estado;
 @Repository
 public interface EstadoRepository extends JpaRepository<Estado, Integer> {
 
-	
-	
 }

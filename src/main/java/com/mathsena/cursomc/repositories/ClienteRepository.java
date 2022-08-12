@@ -10,7 +10,6 @@ import com.mathsena.cursomc.domain.Cliente;
 
 @Repository
 public interface ClienteRepository extends JpaRepository<Cliente, Integer> {
-
 	Optional<Cliente> findByid(Integer id);
 	
 

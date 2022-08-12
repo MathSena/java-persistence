@@ -19,10 +19,10 @@ import com.mathsena.cursomc.services.expections.ObjectNotFoundException;
 
 @Service
 public class CategoriaService {
-	
+
 	@Autowired
 	private CategoriaRepository repo;
-	
+
 	public Categoria find(Integer id) {
 		Optional<Categoria> obj = repo.findByid(id);
 		return obj.orElseThrow(()-> new ObjectNotFoundException(
@@ -32,7 +32,6 @@ public class CategoriaService {
 	public Categoria insert(Categoria obj){
 		obj.setId(null);
 		return repo.save(obj);
-
 	}
 
 	public Categoria update(Categoria obj) {
@@ -43,14 +42,10 @@ public class CategoriaService {
 
 	public void delete(Integer id){
 		find(id);
-
 		try {
 			repo.deleteById(id);
-
 		}catch(DataIntegrityViolationException e){
 			throw new DataIntegrityException("Não é possível deletar uma categoria que possui produtos");
-
-
 		}
 	}
 
@@ -61,17 +56,13 @@ public class CategoriaService {
 	public Page<Categoria> findPage(Integer page, Integer linesPerPage, String orderBy, String direction){
 		PageRequest pageRequest = PageRequest.of(page,linesPerPage, Sort.Direction.valueOf(direction),orderBy);
 		return repo.findAll(pageRequest);
-
-
 	}
 
 	public Categoria fromDTO(CategoriaDTO objDto){
 		return new Categoria(objDto.getId(), objDto.getNome());
-
 	}
 
 	private void UpdateData(Categoria newObj, Categoria obj){
 		newObj.setNome(obj.getNome());
-
 	}
 }

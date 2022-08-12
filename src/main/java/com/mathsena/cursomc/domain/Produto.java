@@ -29,24 +29,20 @@ public class Produto implements Serializable {
 	private Integer id;
 	private String nome;
 	private double preco;
-	
+
 	@JsonIgnore
 	@ManyToMany
 	@JoinTable(name = "PRODUTO_CATEGORIA",
 		joinColumns = @JoinColumn(name = "produto_id"),
 		inverseJoinColumns = @JoinColumn(name = "categoria_id")
 			)
-	
-	
+
 	private List<Categoria> categorias = new ArrayList<>();
-	
 	@JsonIgnore
 	@OneToMany(mappedBy="id.produto")
 	private Set<ItemPedido> itens = new HashSet<>();
-	
-	
+
 	public Produto() {
-		
 	}
 
 	public Produto(Integer id, String nome, double preco) {
@@ -122,11 +118,5 @@ public class Produto implements Serializable {
 		Produto other = (Produto) obj;
 		return Objects.equals(id, other.id);
 	}
-
-
-	
-	
-	
-	
 
 }
