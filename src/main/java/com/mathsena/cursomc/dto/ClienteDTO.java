@@ -1,16 +1,16 @@
 package com.mathsena.cursomc.dto;
 
 import com.mathsena.cursomc.domain.Cliente;
+import com.mathsena.cursomc.services.validation.ClienteUpdate;
 import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
 
+@ClienteUpdate
 public class ClienteDTO implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    @NotEmpty(message = "Prenchimento obrigatório")
-    @Length(min=5,max=120, message = "O tamanho deve ser entre 5 e 120 caracteres")
     private Integer id;
 
     @NotEmpty(message = "Prenchimento obrigatório")

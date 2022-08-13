@@ -8,7 +8,6 @@ import com.mathsena.cursomc.domain.Endereco;
 import com.mathsena.cursomc.domain.enums.TipoCliente;
 import com.mathsena.cursomc.dto.ClienteDTO;
 import com.mathsena.cursomc.dto.ClienteNewDTO;
-import com.mathsena.cursomc.repositories.CidadeRepository;
 import com.mathsena.cursomc.repositories.EnderecoRepository;
 import com.mathsena.cursomc.services.expections.DataIntegrityException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,9 +29,6 @@ public class ClienteService {
 
 	@Autowired
 	private ClienteRepository repo;
-
-	@Autowired
-	private CidadeRepository cidadeRepository;
 
 	@Autowired
 	private EnderecoRepository enderecoRepository;

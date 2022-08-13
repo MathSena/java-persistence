@@ -1,6 +1,8 @@
 package com.mathsena.cursomc.dto;
 
 import com.mathsena.cursomc.domain.Categoria;
+
+import javax.validation.constraints.NotEmpty;
 import org.hibernate.validator.constraints.Length;
 
 import java.io.Serializable;
@@ -10,7 +12,7 @@ public class CategoriaDTO implements Serializable {
 
     private Integer id;
 
-    @javax.validation.constraints.NotEmpty(message = "Preenchimento obrigatorio")
+    @NotEmpty(message = "Preenchimento obrigatório")
     @Length(min=5, max=80, message = "O tamanho deve ser entre 5 e 80 caracteres")
     private String nome;
 

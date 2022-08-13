@@ -2,6 +2,8 @@ package com.mathsena.cursomc;
 
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.List;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -74,11 +76,11 @@ public class CursomcApplication implements CommandLineRunner {
 		Produto p3 = new Produto(null, "Mouse", 80);
 		
 		cat1.getProdutos().addAll(Arrays.asList(p1, p2, p3));
-		cat2.getProdutos().addAll(Arrays.asList(p2));
+		cat2.getProdutos().add(p2);
 		
-		p1.getCategorias().addAll(Arrays.asList(cat1));
+		p1.getCategorias().add(cat1);
 		p2.getCategorias().addAll(Arrays.asList(cat1, cat2));
-		p3.getCategorias().addAll(Arrays.asList(cat1));
+		p3.getCategorias().add(cat1);
 		
 		Estado est1 = new Estado(null, "Minas Gerais");
 		Estado est2 = new Estado(null, "São Paulo");
@@ -87,7 +89,7 @@ public class CursomcApplication implements CommandLineRunner {
 		Cidade c2 = new Cidade(null, "São Paulo", est2);
 		Cidade c3 = new Cidade(null, "Campinas", est1);
 		
-		est1.getCidades().addAll(Arrays.asList(c1));
+		est1.getCidades().add(c1);
 		est2.getCidades().addAll(Arrays.asList(c2,c3));
 		
 		categoriaRepository.saveAll(Arrays.asList(cat1, cat2));
@@ -105,7 +107,7 @@ public class CursomcApplication implements CommandLineRunner {
 		
 		cli1.getEnderecos().addAll(Arrays.asList(e1,e2));
 		
-		clienteRepository.saveAll(Arrays.asList(cli1));
+		clienteRepository.saveAll(List.of(cli1));
 		enderecoRepository.saveAll(Arrays.asList(e1,e2));
 		
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
@@ -129,11 +131,11 @@ public class CursomcApplication implements CommandLineRunner {
 		ItemPedido ip3 = new ItemPedido(ped2, p2, 100.00, 1, 800.00);
 		
 		ped1.getItens().addAll(Arrays.asList(ip1,ip2));
-		ped2.getItens().addAll(Arrays.asList(ip3));
+		ped2.getItens().add(ip3);
 		
-		p1.getItens().addAll(Arrays.asList(ip1));
-		p2.getItens().addAll(Arrays.asList(ip3));
-		p3.getItens().addAll(Arrays.asList(ip2));
+		p1.getItens().add(ip1);
+		p2.getItens().add(ip3);
+		p3.getItens().add(ip2);
 		
 		itemPedidoRepository.saveAll(Arrays.asList(ip1,ip2,ip3));
 		
