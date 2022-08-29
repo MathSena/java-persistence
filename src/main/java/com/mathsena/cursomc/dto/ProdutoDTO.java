@@ -2,46 +2,20 @@ package com.mathsena.cursomc.dto;
 
 import com.mathsena.cursomc.domain.Produto;
 
-import java.io.Serializable;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-public class ProdutoDTO implements Serializable {
-    private static final long serialVersionUID = 1L;
+@Data
+@NoArgsConstructor
+public class ProdutoDTO  {
 
-    private Integer id;
+    private String id;
     private String nome;
     private double preco;
 
-    public ProdutoDTO(){
-
-    }
-
     public ProdutoDTO(Produto obj) {
-        id = obj.getId();
-        nome = obj.getNome();
-        preco = obj.getPreco();
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public double getPreco() {
-        return preco;
-    }
-
-    public void setPreco(double preco) {
-        this.preco = preco;
+        this.id = obj.getId();
+        this.nome = obj.getNome();
+        this.preco = obj.getPreco();
     }
 }
